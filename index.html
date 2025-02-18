@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boredom Hub - Sign Up</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Logo -->
+  <img src="images/logo.png" alt="Boredom Hub Logo" class="logo">
+
+  <div class="main-content">
+    <h1 class="cool-text">Welcome to Boredom Hub!</h1>
+    <p>Sign up to unlock all features.</p>
+
+    <!-- Sign Up Form -->
+    <div class="form-container">
+      <form id="signupForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" required>
+
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+    <!-- Login Section -->
+    <div class="login-section">
+      <p>Already have an account? <a href="#" id="showLogin">Log in here</a></p>
+
+      <div id="loginFormContainer" style="display: none;">
+        <form id="loginForm">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" required>
+
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" required>
+
+          <button type="submit">Log In</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Fake Verification Message -->
+    <div id="verificationMessage" style="display: none;">
+      <p>Your account has been created! Refresh to log in.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      const username = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      // Store in localStorage
+      localStorage.setItem(email, JSON.stringify({ username, password }));
+
+      // Show verification message
+      document.getElementById("verificationMessage").style.display = "block";
+    });
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+      const storedUser = localStorage.getItem(email);
+
+      if (!storedUser) {
+        alert("User not found!");
+        return;
+      }
+
+      const userData = JSON.parse(storedUser);
+      if (userData.password !== password) {
+        alert("Incorrect password!");
+        return;
+      }
+
+      alert("Login successful!");
+      // Redirect to homepage (change to your actual home page)
+      window.location.href = "home.html";
+    });
+
+    // Show login form when clicked
+    document.getElementById("showLogin").addEventListener("click", function(event) {
+      event.preventDefault();
+      document.getElementById("loginFormContainer").style.display = "block";
+    });
+  </script>
+</body>
+</html>
