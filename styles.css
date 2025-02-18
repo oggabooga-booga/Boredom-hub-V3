@@ -34,13 +34,12 @@ body {
 
 /* Logo Styling */
 .logo {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  z-index: 100;
+  display: block;
+  width: 150px;  /* Adjust size */
+  height: auto;
+  margin: 20px auto;  /* Centers it */
 }
+
 
 /* Cool Text Effect */
 .cool-text {
