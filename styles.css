@@ -1,0 +1,125 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and Background */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(45deg, rgba(0, 0, 50, 0.8), rgba(50, 0, 100, 0.8), rgba(100, 0, 200, 0.8));
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  color: white;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+/* Animated Gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Logo Styling */
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  z-index: 100;
+}
+
+/* Cool Text Effect */
+.cool-text {
+  font-size: 4rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #7A2C96, #72c6d0);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: neonText 1.5s ease-in-out infinite alternate;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 30px rgba(72, 172, 255, 0.9), 0 0 40px rgba(72, 172, 255, 0.9), 0 0 50px rgba(72, 172, 255, 0.9);
+}
+
+@keyframes neonText {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 30px rgba(72, 172, 255, 0.9), 0 0 40px rgba(72, 172, 255, 0.9), 0 0 50px rgba(72, 172, 255, 0.9);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 50px rgba(72, 172, 255, 0.9), 0 0 70px rgba(72, 172, 255, 0.9), 0 0 90px rgba(72, 172, 255, 0.9);
+  }
+}
+
+/* Main Content Styling */
+.main-content {
+  margin-top: 120px; /* Space for logo */
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+/* Buttons and Links */
+button, .link {
+  background-color: #7A2C96; /* Purple button */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+button:hover, .link:hover {
+  background-color: #5a1f7c; /* Darker purple on hover */
+  transform: scale(1.05);
+}
+
+/* Chat and Interactive Areas */
+.chat-box, .game-area {
+  border: 2px solid #72c6d0;
+  background-color: rgba(30, 30, 30, 0.7);
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+
+footer a {
+  color: #72c6d0;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
